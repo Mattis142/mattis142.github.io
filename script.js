@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let radius = 0;
   if (isMobile()) {
-    radius = 160;
+    radius = 130;
   } else {
     radius = 200;
   }
