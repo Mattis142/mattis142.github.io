@@ -1,28 +1,98 @@
 <!DOCTYPE html>
-<html lang="de">
-    <head>
-        <title>Mattis Kabella - Designportfolio und Informationen</title>
-        <script type="application/ld+json">
-    {
-      "@context" : "https://schema.org",
-      "@type" : "WebSite",
-      "name" : "Mattis Kabella",
-      "url" : "https://mattis-kabella.com/"
-    }
-        </script>
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Das Portfolio von Mattis Kabella">
-        <meta property="og:title" content="Mattis Kabella - Designportfolio und Informationen">
-    </head>
-    <body>
-        <h1>Mattis Kabella</h1>
-        <h2>Dies ist mein Portfolio, persönlicher Designblog und Ort zum experimentieren.</h2>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mattis Kabella</title>
+    <meta name="description" content="Mattis Kabella's personal website" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100,200,300,400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    
+    </div>
+    <div id="landing">
+    <canvas id="bg"></canvas>
+      <div id="name">
+        Mattis
+        <br />
+        Kabella
+      </div>
+      <div class="divider"></div>
+      <div id="links">
+        <p>
+          <a href="https://www.instagram.com/mattis_kabella" target="_blank"
+            >instagram <span class="social-name">mattis_kabella</span>
+            <span>↗</span></a
+          >
+        </p>
+        <p>
+          <a href="https://www.threads.net/mattis_kabella" target="_blank"
+            >threads <span class="social-name">mattis_kabella</span>
+            <span>↗</span></a
+          >
+        </p>
+        <p>
+          <a href="mailto:contact@mattis-kabella.com"
+            >mail <span class="social-name">contact@mattis-kabella.com</span>
+            <span>↗</span></a
+          >
+        </p>
+      </div>
+      <div class="divider"></div>
+      <div id="description">
+        <p>
+          Hey, my name is Mattis. I showed interest in graphic design and
+          advertising from a young age. Over the years my interest grew further
+          and I expanded my skills. I like to create concept designs and help
+          the graphics of open-source projects in my free time. This website is
+          focused on displaying my designs and explaining my thought process
+          behind them.
+        </p>
+      </div>
+    </div>
 
-        <p style="font-size: 12px;">Hallo und herzlich willkommen auf meiner webseite, dies ist ein Test ob google das hier indexed. Ich denke mal nicht aber najaman gucken. Hier ist ein bisschen generierter Text damit die Seite schön voll ist: Ein Portfolio ist eine Sammlung von Arbeiten, Projekten oder Leistungen, die eine Person oder ein Unternehmen im Laufe der Zeit erstellt hat. Es dient als Beweis für die Fähigkeiten, Erfahrungen und Leistungen des Einzelnen oder des Unternehmens. Hier ist eine mögliche Erklärung für ein Portfolio:
-
-            "Ein Portfolio ist eine sorgfältig kuratierte Sammlung von Arbeiten, die die Fähigkeiten, Erfahrungen und Errungenschaften eines Individuums oder einer Organisation demonstrieren. Es kann eine Vielzahl von Elementen enthalten, wie z.B. Projekte, Fallstudien, Designs, Kunstwerke, Berichte und mehr. Das Ziel eines Portfolios ist es, einen umfassenden Überblick über die Fähigkeiten und Talente des Einzelnen oder der Organisation zu geben. Es dient als lebendiges Dokument, das im Laufe der Zeit wächst und sich entwickelt, um neue Arbeiten und Erfahrungen widerzuspiegeln."
-            
-            Bitte beachten Sie, dass der genaue Inhalt und die Struktur eines Portfolios je nach Kontext variieren können. Ein Portfolio kann in vielen Bereichen verwendet werden, wie z.B. Kunst, Design, Bildung, Business und mehr. Es kann sowohl in gedruckter Form als auch digital präsentiert werden. Ein gut gestaltetes und gepflegtes Portfolio kann eine effektive Möglichkeit sein, Ihre Fähigkeiten und Erfahrungen zu präsentieren und sich von anderen abzuheben. Es kann auch dazu beitragen, Ihre berufliche Entwicklung zu fördern und neue Möglichkeiten zu erschließen.</p>
-    </body>
+    <div id="projects">
+        <div class="project">
+            <div class="project-info">
+                <h3>Project 1</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.   
+                </p>
+            </div>
+            <div class="project-image">
+                <img src="https://via.placeholder.com/250x150" />
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-info">
+                <h3>Project 2</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.   
+                </p>
+            </div>
+            <div class="project-image">
+                <img src="https://via.placeholder.com/250x150" />
+            </div> 
+        </div>
+        <div class="project">
+            <div class="project-info">
+                <h3>Project 3</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.   
+                </p>
+            </div>
+            <div class="project-image">
+                <img src="https://via.placeholder.com/250x150" />
+            </div>
+        </div>
+    </div>
+    <script src="./script.js" defer></script>
+</body>
 </html>
