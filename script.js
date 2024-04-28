@@ -11,31 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   let radius = 0;
-  if(isMobile()) {
-    radius = 100;
+  if (isMobile()) {
+    radius = 160;
   } else {
     radius = 200;
   }
   let x = radius + Math.floor(Math.random() * (canvas.width - radius * 2));
   let y = radius + Math.floor(Math.random() * (canvas.height - radius * 2));
-  
-  let dx = Math.random() > 0.5 ? -2 : 2;
-  let dy = Math.random() > 0.5 ? -2 : 2;
+  let dx = Math.random() > 0.5 ? -100 : 100; 
+  let dy = Math.random() > 0.5 ? -100 : 100;
+  let lastTime = performance.now(); 
 
-  const move = () => {
-    x += dx;
-    y += dy;
+  const move = (elapsedTime) => {
+    const deltaTime = elapsedTime - lastTime;
+    const speed = 1.5;
+    x += (dx * deltaTime) / 3000 * speed; 
+    y += (dy * deltaTime) / 3000 * speed;
     if (x + radius > canvas.width || x - radius < 0) dx = -dx;
     if (y + radius > canvas.height - 60 || y - radius < 0) dy = -dy;
   };
+
 
   const blurredCanvas = document.createElement('canvas');
   const blurredCtx = blurredCanvas.getContext('2d');
   blurredCanvas.width = canvas.width;
   blurredCanvas.height = canvas.height;
 
-
-  // once the user reaches the #projects element, change the background to hsl(hue, 100%, 40%), instantly
   const projectsEl = document.querySelector('#projects');
 
   const updateBgColor = () => {
@@ -58,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const drawBlurredCircle = () => {
-    if(isMobile()) {
-      blurredCtx.filter = 'blur(20px)';
+    if (isMobile()) {
+      blurredCtx.filter = 'blur(50px)';
     } else {
       blurredCtx.filter = 'blur(50px)';
     }
-    
+
     blurredCtx.clearRect(0, 0, blurredCanvas.width, blurredCanvas.height); // Clear the blurred canvas
     blurredCtx.beginPath();
     blurredCtx.arc(x, y, radius, 0, 2 * Math.PI);
@@ -75,10 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
   drawBlurredCircle();
 
   const draw = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the main canvas
+    const currentTime = performance.now(); 
+    const elapsedTime = currentTime - lastTime; 
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(blurredCanvas, 0, 0);
-    move();
+    move(currentTime); 
     drawBlurredCircle();
+    lastTime = currentTime; 
+
     requestAnimationFrame(draw);
   };
 
