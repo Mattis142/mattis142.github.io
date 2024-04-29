@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const randHue = Math.floor(Math.random() * 360);
   document.body.style.setProperty('--hue', randHue);
-  textColor = randHue > 180 ? '#000000' : '#ffffff';
+  let textColor = randHue > 180 ? '#000000' : '#ffffff';
 
   const canvas = document.getElementById('bg');
   const ctx = canvas.getContext('2d');
@@ -9,17 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.width = parent.clientWidth;
   canvas.height = parent.clientHeight;
 
+  let x, y, dx, dy, radius;
+  const init = () => {
+    if (isMobile()) {
+      radius = 140;
+    } else {
+      radius = 200;
+    }
+    x = radius + Math.floor(Math.random() * (canvas.width - radius * 2));
+    y = radius + Math.floor(Math.random() * (canvas.height - radius * 2));
+    dx = Math.random() > 0.5 ? -100 : 100; 
+    dy = Math.random() > 0.5 ? -100 : 100;
+  };
 
-  let radius = 0;
-  if (isMobile()) {
-    radius = 140;
-  } else {
-    radius = 200;
-  }
-  let x = radius + Math.floor(Math.random() * (canvas.width - radius * 2));
-  let y = radius + Math.floor(Math.random() * (canvas.height - radius * 2));
-  let dx = Math.random() > 0.5 ? -100 : 100; 
-  let dy = Math.random() > 0.5 ? -100 : 100;
   let lastTime = performance.now(); 
 
   const move = (elapsedTime) => {
@@ -30,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (x + radius > canvas.width || x - radius < 0) dx = -dx;
     if (y + radius > canvas.height - 60 || y - radius < 0) dy = -dy;
   };
-
 
   const blurredCanvas = document.createElement('canvas');
   const blurredCtx = blurredCanvas.getContext('2d');
@@ -55,8 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', updateBgColor);
   updateBgColor();
-
-
 
   const drawBlurredCircle = () => {
     if (isMobile()) {
@@ -93,12 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.height = parent.clientHeight;
     blurredCanvas.width = canvas.width;
     blurredCanvas.height = canvas.height;
+    init();
     drawBlurredCircle();
   });
 
+  init();
   draw();
 });
-
 
 function isMobile() {
   return window.innerWidth < 600;
