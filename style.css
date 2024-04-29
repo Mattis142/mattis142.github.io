@@ -52,8 +52,10 @@ body {
 }
 
 #landing #name {
-    font-size: clamp(4rem, 10vw, 10rem);
+    font-size: clamp(6rem, 10vw, 10rem);
+    font-weight: 500;
     line-height: 1;
+    letter-spacing:-1px;
 }
 
 #landing #links p {
@@ -62,15 +64,15 @@ body {
 
 #landing #links a {
     color: inherit;
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: clamp(1.8rem, 3vw, 3rem);
     font-weight: 500;
     text-decoration: none;
     transition: color 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 #landing #links a .social-name {
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: lighter;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 200;
 }
 
 #landing #description {

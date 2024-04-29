@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let radius = 0;
   if (isMobile()) {
-    radius = 130;
+    radius = 140;
   } else {
     radius = 200;
   }
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const move = (elapsedTime) => {
     const deltaTime = elapsedTime - lastTime;
-    const speed = 1.5;
-    x += (dx * deltaTime) / 3000 * speed; 
-    y += (dy * deltaTime) / 3000 * speed;
+    const speed = 0.2;
+    x += (dx * deltaTime) / 1000 * speed; 
+    y += (dy * deltaTime) / 1000 * speed;
     if (x + radius > canvas.width || x - radius < 0) dx = -dx;
     if (y + radius > canvas.height - 60 || y - radius < 0) dy = -dy;
   };
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const drawBlurredCircle = () => {
     if (isMobile()) {
-      blurredCtx.filter = 'blur(50px)';
+      blurredCtx.filter = 'blur(70px)';
     } else {
       blurredCtx.filter = 'blur(50px)';
     }
